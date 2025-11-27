@@ -31,6 +31,11 @@ app.get('/', (req, res) => {
 });
 
 // Levantar servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+// Levantar servidor solo si no es un entorno serverless (opcional, o para local)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

@@ -12,3 +12,5 @@ yarn-error.log
 
 backoffice/node_modules/
 frontend/node_modules/
+.vercel
+.env*.local
