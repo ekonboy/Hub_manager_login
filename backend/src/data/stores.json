@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Mi WordPress",
+    "url": "https://zaska.vistarapida.es",
+    "platform": "wp",
+    "username": "gabrielrese@gmail.com",
+    "app_password": "4Dbf8Gyo6Gtk0YuxU7gLEnYa"
+  },
+  {
+    "id": 2,
+    "name": "Mi Tienda WP 2",
+    "url": "http://localhost:8080",
+    "platform": "wp",
+    "api_key": "ck_test",
+    "api_secret": "cs_test"
+  },
+  {
+    "id": 3,
+    "name": "Mi Tienda WP 3",
+    "url": "http://localhost:8080",
+    "platform": "wp",
+    "api_key": "ck_test",
+    "api_secret": "cs_test"
+  }
+]

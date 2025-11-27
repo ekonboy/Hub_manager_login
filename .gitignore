@@ -1,0 +1,14 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# React build
+/frontend/build
+
+# Environment
+.env
+.env.local
+
+backoffice/node_modules/
+frontend/node_modules/
