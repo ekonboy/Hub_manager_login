@@ -14,11 +14,74 @@
     "url": "https://bocabadat.vistarapida.es",
     "platform": "WP",
     "username": "gabrielrese@gmail.com",
-    "logo": "https://bocabadat.vistarapida.es/wp-content/uploads/2025/11/gabii-mobile_LOGO_RED.png",
-    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+    "logo": "",
+    "image": ""
   },
   {
     "id": 3,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 4,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 5,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 6,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 7,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 8,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 9,
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+  },
+  {
+    "id": 10,
     "name": "EXITUS",
     "url": "https://exitus.es",
     "platform": "WP + ACF",

@@ -10,17 +10,47 @@ export default function Stores() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchStores()
-      .then((data) => {
+    const loadStoresWithWPData = async () => {
+      try {
+        const data = await fetchStores();
         console.log("Stores recibidos:", data);
-        setStores(data.stores || []); // <-- aquí accedemos al array real
+        const baseStores = data.stores || [];
+
+        // Para cada store, obtener datos dinámicos de WordPress
+        const storesWithWPData = await Promise.all(
+          baseStores.map(async (store) => {
+            // Solo consultar si es una plataforma WP
+            if (store.platform && store.platform.includes('WP')) {
+              try {
+                const wpResponse = await fetch(`${store.url}/wp-json/filament/v1/stores`);
+                const wpData = await wpResponse.json();
+                
+                // Combinar datos: usar logo/image de WP si existen
+                if (wpData && wpData.length > 0) {
+                  return {
+                    ...store,
+                    logo: wpData[0].logo || store.logo || '',
+                    image: wpData[0].image || store.image || ''
+                  };
+                }
+              } catch (wpError) {
+                console.warn(`No se pudo obtener datos WP de ${store.name}:`, wpError);
+              }
+            }
+            return store;
+          })
+        );
+
+        setStores(storesWithWPData);
         setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error("Error fetchStores:", err);
         setError("No se pudieron cargar los CMS");
         setLoading(false);
-      });
+      }
+    };
+
+    loadStoresWithWPData();
   }, []);
 
   const handleLogin = async (store) => {
