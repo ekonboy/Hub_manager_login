@@ -1,26 +1,29 @@
 [
   {
     "id": 1,
-    "name": "Mi WordPress",
+    "name": "ZASKA",
     "url": "https://zaska.vistarapida.es",
-    "platform": "wp",
+    "platform": "WP + WOO",
     "username": "gabrielrese@gmail.com",
-    "app_password": "4Dbf8Gyo6Gtk0YuxU7gLEnYa"
+    "logo": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/gabii-mobile_LOGO33.png",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
   },
   {
     "id": 2,
-    "name": "Mi Tienda WP 2",
-    "url": "http://localhost:8080",
-    "platform": "wp",
-    "api_key": "ck_test",
-    "api_secret": "cs_test"
+    "name": "BOCABADAT",
+    "url": "https://bocabadat.vistarapida.es",
+    "platform": "WP",
+    "username": "gabrielrese@gmail.com",
+    "logo": "https://bocabadat.vistarapida.es/wp-content/uploads/2025/11/gabii-mobile_LOGO_RED.png",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
   },
   {
     "id": 3,
-    "name": "Mi Tienda WP 3",
-    "url": "http://localhost:8080",
-    "platform": "wp",
-    "api_key": "ck_test",
-    "api_secret": "cs_test"
+    "name": "EXITUS",
+    "url": "https://exitus.es",
+    "platform": "WP + ACF",
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
   }
 ]

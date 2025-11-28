@@ -40,6 +40,18 @@ const StoreController = {
             console.error('Error en loginStore:', err);
             response.error(res, err.message);
         }
+    },
+
+    syncStore: async (req, res) => {
+        try {
+            console.log('--- syncStore request ---');
+            console.log('Body:', req.body);
+            const updatedStore = await StoreService.syncStore(req.body);
+            response.success(res, updatedStore, 'Store actualizada correctamente');
+        } catch(err) {
+            console.error('Error en syncStore:', err);
+            response.error(res, err.message);
+        }
     }
 };
 

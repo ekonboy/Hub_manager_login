@@ -13,5 +13,8 @@ router.post('/', StoreController.createStore);
 // GET /api/stores/:id/login?user_id=1
 router.post('/:id/login', StoreController.loginStore);
 
+// PUT /api/stores/sync
+router.put('/sync', StoreController.syncStore);
+
 
 module.exports = router;

@@ -29,29 +29,4 @@ router.post('/validate', async (req, res) => {
   }
 });
 
-// Listar tokens
-router.get('/', async (req, res) => {
-  try {
-    const filters = req.query;
-    const tokens = await TokenService.listTokens(filters);
-    res.json({ tokens });
-  } catch (err) {
-    res.status(500).json({ message: 'Error al leer los tokens', error: err.message });
-  }
-});
-
-// Borrar token
-router.delete('/:token', async (req, res) => {
-  const { token } = req.params || {};
-  if (!token) return res.status(400).json({ message: 'Falta token' });
-
-  try {
-    const deleted = await TokenService.deleteToken(token);
-    if (!deleted) return res.status(404).json({ message: 'Token no encontrado' });
-    res.json({ message: 'Token eliminado correctamente' });
-  } catch (err) {
-    res.status(500).json({ message: 'Error eliminando token', error: err.message });
-  }
-});
-
 module.exports = router;

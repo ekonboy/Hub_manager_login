@@ -10,7 +10,10 @@ Sube este repositorio a tu GitHub. Luego ve a tu dashboard de Vercel y añade un
 1. Importa el repositorio desde GitHub.
 2. En "Root Directory", selecciona `backend`.
 3. Vercel detectará la configuración automáticamente gracias al archivo `vercel.json`.
-4. Haz clic en **Deploy**.
+4. **IMPORTANTE**: Antes de hacer deploy, ve a **Environment Variables** y añade:
+   - **Name**: `JWT_SECRET`
+   - **Value**: Una clave secreta aleatoria (ej: `mi-clave-super-secreta-123456`)
+5. Haz clic en **Deploy**.
 5. Una vez desplegado, copia la URL del dominio (ej: `https://tu-backend.vercel.app`).
 
 ### 2. Desplegar el Frontend

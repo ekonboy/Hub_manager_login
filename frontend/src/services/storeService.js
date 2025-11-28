@@ -20,27 +20,3 @@ export const updateStoreDetails = async (storeId, details) => {
 };
 
 
-// export const fetchStoreUsers = async (storeId) => {
-//   const res = await API.get(`/stores/${storeId}/users`);
-//   return res.data.users;
-// };
-// export const addUserToStore = async (storeId, userData) => {
-//   const res = await API.post(`/stores/${storeId}/users`, userData);
-//   return res.data;
-// };
-// export const removeUserFromStore = async (storeId, userId) => {
-//   const res = await API.delete(`/stores/${storeId}/users/${userId}`);
-//   return res.data;
-// };
-// export const fetchStorePasswords = async (storeId) => {
-//   const res = await API.get(`/stores/${storeId}/passwords`);
-//   return res.data.passwords;
-// } ;
-// export const addPasswordToStore = async (storeId, passwordData) => {
-//   const res = await API.post(`/stores/${storeId}/passwords`, passwordData);
-//   return res.data;
-// };
-// export const removePasswordFromStore = async (storeId, passwordId) => {
-//     const res = await API.delete(`/stores/${storeId}/passwords/${passwordId}`);
-//     return res.data;
-// };
