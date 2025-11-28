@@ -20,17 +20,17 @@ export default function Stores() {
         const storesWithWPData = await Promise.all(
           baseStores.map(async (store) => {
             // Solo consultar si es una plataforma WP
-            if (store.platform && store.platform.includes('WP')) {
+            if (store.platform && store.platform.includes("WP")) {
               try {
                 const wpResponse = await fetch(`${store.url}/wp-json/filament/v1/stores`);
                 const wpData = await wpResponse.json();
-                
+
                 // Combinar datos: usar logo/image de WP si existen
                 if (wpData && wpData.length > 0) {
                   return {
                     ...store,
-                    logo: wpData[0].logo || store.logo || '',
-                    image: wpData[0].image || store.image || ''
+                    logo: wpData[0].logo || store.logo || "",
+                    image: wpData[0].image || store.image || "",
                   };
                 }
               } catch (wpError) {
@@ -94,12 +94,14 @@ export default function Stores() {
 
   return (
     <div className="container mt-5">
-      <div className="text-end mb-4">
+      <div className="text-end">
         <ToggleTheme />
+        <div class="alert alert-success" style={{ width: "20%", position: "absolute", float: "right", top: "46px", right: "0%", marginBottom: "50px" }} role="alert">
+          Hub Manager Login
+        </div>
       </div>
 
-      <h1 className="mb-4 text-center">Hub Manager Login</h1>
-      <div className="row">
+      <div className="row mt-5">
         {stores.map((store) => (
           <StoreCard key={store.id} store={store} onLogin={() => handleLogin(store)} />
         ))}

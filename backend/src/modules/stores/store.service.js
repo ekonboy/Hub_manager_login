@@ -1,11 +1,12 @@
 const path = require('path');
 const fs = require('fs');
+const axios = require('axios');
 const TokenService = require(path.join(__dirname, '..', 'tokens', 'token.service'));
 
 const storesFile = path.join(__dirname, '..', '..', 'data', 'stores.json');
 
 const StoreService = {
-  // Listar stores
+  // Listar stores estático
   listStores: async () => {
     const data = fs.readFileSync(storesFile, 'utf-8');
     return JSON.parse(data);
@@ -23,22 +24,19 @@ const StoreService = {
 
   // Generar token y devolver URL de login
   generateTokenAndSend: async (storeId, userId) => {
-    // Leer stores
     const storesData = fs.readFileSync(storesFile, 'utf-8');
     const stores = JSON.parse(storesData);
     const store = stores.find(s => s.id === storeId);
     if (!store) throw new Error('Store no encontrada');
 
-    // Crear token para este store y usuario
     const tokenObj = await TokenService.createToken(userId, storeId, store.username);
 
-    // Construir URL de login automático
     const loginUrl = `${store.url.replace(/\/$/, '')}/wp-json/filament/v1/login?token=${tokenObj.token}`;
 
     return loginUrl;
   },
 
-  // Sincronizar datos desde WP (actualizar por URL)
+  // Sincronizar datos desde WP
   syncStore: async (data) => {
     const { url, logo, image, app_password } = data;
     if (!url) throw new Error('URL es requerida para sincronizar');
@@ -46,24 +44,52 @@ const StoreService = {
     const storesData = fs.readFileSync(storesFile, 'utf-8');
     let stores = JSON.parse(storesData);
     
-    // Normalizar URL para comparación (quitar slash final)
     const normalize = (u) => u.replace(/\/$/, '').toLowerCase();
     const targetUrl = normalize(url);
 
     const storeIndex = stores.findIndex(s => normalize(s.url) === targetUrl);
 
-    if (storeIndex === -1) {
-        // Opción: Crear si no existe? Por ahora solo actualizamos.
-        throw new Error('Store no encontrada con esa URL: ' + url);
-    }
+    if (storeIndex === -1) throw new Error('Store no encontrada con esa URL: ' + url);
 
-    // Actualizar campos
     if (logo) stores[storeIndex].logo = logo;
     if (image) stores[storeIndex].image = image;
     if (app_password) stores[storeIndex].app_password = app_password;
 
     fs.writeFileSync(storesFile, JSON.stringify(stores, null, 2));
     return stores[storeIndex];
+  },
+
+  // Listar stores con iconos dinámicos desde WP
+  listStoresWithIcons: async () => {
+    const storesData = fs.readFileSync(storesFile, 'utf-8');
+    const stores = JSON.parse(storesData);
+
+    const storesWithIcons = await Promise.all(
+      stores.map(async store => {
+        let platform_icons = store.platform_icons || [];
+
+        // Solo si tiene WP
+        if (store.platform && store.platform.includes("WP")) {
+          try {
+            const wpResponse = await axios.get(`${store.url.replace(/\/$/, '')}/wp-json/filament/v1/stores`);
+            const wpData = wpResponse.data;
+
+            if (wpData && wpData.length > 0 && wpData[0].platform_icons) {
+              platform_icons = wpData[0].platform_icons;
+            }
+          } catch (err) {
+            console.warn(`No se pudieron obtener iconos WP de ${store.name}:`, err.message);
+          }
+        }
+
+        // Asegurar que siempre tenga WordPress
+        if (!platform_icons.includes("bi bi-wordpress")) platform_icons.unshift("bi bi-wordpress");
+
+        return { ...store, platform_icons };
+      })
+    );
+
+    return storesWithIcons;
   }
 };
 

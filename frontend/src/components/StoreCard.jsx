@@ -7,15 +7,54 @@ function StoreCard({ store, onLogin }) {
       <div className="card shadow-sm h-100 bg-body text-body">
         {/* Cabecera */}
 
-        {store.logo && (
-          <img
-            src={store.logo}
-            alt={`${store.name} logo`}
-            className="centered-absolute"
-          />
-        )}
+        {store.logo && <img src={store.logo} alt={`${store.name} logo`} className="centered-absolute" />}
 
-    
+
+
+
+
+
+
+        {(() => {
+        
+
+     
+          return (
+            <div
+  className="platform-icons d-flex flex-column"
+  style={{
+    position: "absolute",
+    left: "11px",
+    gap: "10px", // espacio de 10px entre iconos
+  }}
+>
+  {Array.isArray(store.platform_icons) && store.platform_icons.length > 0
+    ? [...new Set(["bi bi-wordpress", ...store.platform_icons])].map((icon, index) => (
+        <i
+          key={index}
+          className={icon}
+          style={{
+            fontSize: "2.8rem",
+            color: "inherit",
+            textShadow: "1px 1px 2px rgba(0,0,0,0.8)", // sombra negra
+          }}
+        ></i>
+      ))
+    : (
+      <i
+        className="bi bi-wordpress"
+        style={{
+          fontSize: "2.8rem",
+          color: "inherit",
+          textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+        }}
+      ></i>
+    )}
+</div>
+
+          );
+        })()}
+
         {store.image && <img src={store.image} alt={`${store.name} image`} />}
 
         <div className="store-info-badges">
@@ -23,9 +62,6 @@ function StoreCard({ store, onLogin }) {
             <FaStore className="me-2" />
             <span className="badge bg-transparent text-white">{store.name}</span>
           </a>
-
-          {/* Plataforma */}
-          {store.platform && <div className="platform-badge">{store.platform.toUpperCase()}</div>}
 
           {/* Estado */}
           {store.active !== undefined && <div className={`status-badge ${Boolean(store.active) ? "active" : "inactive"}`}>{Boolean(store.active) ? "Activa" : "Inactiva"}</div>}
@@ -36,8 +72,6 @@ function StoreCard({ store, onLogin }) {
             Acceder
           </button>
         </div>
-
-
       </div>
     </div>
   );
