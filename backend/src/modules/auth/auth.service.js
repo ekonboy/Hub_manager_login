@@ -10,6 +10,11 @@ const AuthService = {
     const adminUsername = process.env.ADMIN_USERNAME || 'admin';
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
 
+    console.log('Login Check:');
+    console.log('  - Usuario recibido:', username);
+    console.log('  - Usuario esperado (ENV):', adminUsername);
+    console.log('  - ¿Password coincide?:', password === adminPassword ? 'SÍ' : 'NO');
+
     return username === adminUsername && password === adminPassword;
   },
 
