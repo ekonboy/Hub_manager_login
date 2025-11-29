@@ -93,22 +93,30 @@ const StoreService = {
   // Listar stores con iconos dinámicos desde WP
   listStoresWithIcons: async () => {
     const filePath = getStoresFilePath();
-    console.log('listStoresWithIcons leyendo de:', filePath);
+    console.log('DEBUG: listStoresWithIcons leyendo de:', filePath);
     
     if (!fs.existsSync(filePath)) {
-       // Fallback vacío si no existe
-       console.error('ARCHIVO NO ENCONTRADO en listStoresWithIcons:', filePath);
+       console.error('DEBUG: ARCHIVO NO ENCONTRADO en:', filePath);
        return [];
     }
 
     const storesData = fs.readFileSync(filePath, 'utf-8');
     const stores = JSON.parse(storesData);
+    console.log(`DEBUG: Stores cargados del JSON: ${stores.length}`);
+    if (stores.length > 0) {
+        console.log('DEBUG: Primer store del JSON:', JSON.stringify(stores[0]));
+        const batlle = stores.find(s => s.name === 'Batlle');
+        if (batlle) console.log('DEBUG: Store Batlle encontrada en JSON:', JSON.stringify(batlle));
+    }
 
     const storesWithIcons = await Promise.all(
       stores.map(async store => {
         let platform_icons = store.platform_icons || [];
         let logo = store.logo || '';
         let image = store.image || '';
+        
+        // Debug inicial
+        if (store.name === 'Batlle') console.log(`DEBUG Batlle antes de WP - Image: ${image}`);
 
         // Solo si tiene WP
         if (store.platform && store.platform.includes("WP")) {
@@ -126,6 +134,7 @@ const StoreService = {
               }
               if (wpData[0].image) {
                 image = wpData[0].image;
+                if (store.name === 'Batlle') console.log(`DEBUG Batlle: Imagen sobrescrita por WP: ${image}`);
               }
             }
           } catch (err) {
