@@ -67,6 +67,8 @@ const StoreService = {
     const storesWithIcons = await Promise.all(
       stores.map(async store => {
         let platform_icons = store.platform_icons || [];
+        let logo = store.logo || '';
+        let image = store.image || '';
 
         // Solo si tiene WP
         if (store.platform && store.platform.includes("WP")) {
@@ -74,18 +76,27 @@ const StoreService = {
             const wpResponse = await axios.get(`${store.url.replace(/\/$/, '')}/wp-json/filament/v1/stores`);
             const wpData = wpResponse.data;
 
-            if (wpData && wpData.length > 0 && wpData[0].platform_icons) {
-              platform_icons = wpData[0].platform_icons;
+            if (wpData && wpData.length > 0) {
+              // Obtener iconos, logo e imagen de WordPress
+              if (wpData[0].platform_icons) {
+                platform_icons = wpData[0].platform_icons;
+              }
+              if (wpData[0].logo) {
+                logo = wpData[0].logo;
+              }
+              if (wpData[0].image) {
+                image = wpData[0].image;
+              }
             }
           } catch (err) {
-            console.warn(`No se pudieron obtener iconos WP de ${store.name}:`, err.message);
+            console.warn(`No se pudieron obtener datos WP de ${store.name}:`, err.message);
           }
         }
 
         // Asegurar que siempre tenga WordPress
         if (!platform_icons.includes("bi bi-wordpress")) platform_icons.unshift("bi bi-wordpress");
 
-        return { ...store, platform_icons };
+        return { ...store, platform_icons, logo, image };
       })
     );
 

@@ -9,49 +9,38 @@ function StoreCard({ store, onLogin }) {
 
         {store.logo && <img src={store.logo} alt={`${store.name} logo`} className="centered-absolute" />}
 
-
-
-
-
-
-
         {(() => {
-        
-
-     
           return (
             <div
-  className="platform-icons d-flex flex-column"
-  style={{
-    position: "absolute",
-    left: "11px",
-    gap: "10px", // espacio de 10px entre iconos
-  }}
->
-  {Array.isArray(store.platform_icons) && store.platform_icons.length > 0
-    ? [...new Set(["bi bi-wordpress", ...store.platform_icons])].map((icon, index) => (
-        <i
-          key={index}
-          className={icon}
-          style={{
-            fontSize: "2.8rem",
-            color: "inherit",
-            textShadow: "1px 1px 2px rgba(0,0,0,0.8)", // sombra negra
-          }}
-        ></i>
-      ))
-    : (
-      <i
-        className="bi bi-wordpress"
-        style={{
-          fontSize: "2.8rem",
-          color: "inherit",
-          textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
-        }}
-      ></i>
-    )}
-</div>
-
+              className="platform-icons d-flex flex-column"
+              style={{
+                position: "absolute",
+                left: "11px",
+                gap: "10px", // espacio de 10px entre iconos
+              }}>
+              {Array.isArray(store.platform_icons) && store.platform_icons.length > 0 ? (
+                [...new Set(["bi bi-wordpress", ...store.platform_icons])].map((icon, index) => (
+                  <i
+                    key={index}
+                    className={icon}
+                    style={{
+                      fontSize: "2.8rem",
+                      color: "inherit",
+                      textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+                      height: "45px",
+                    }}></i>
+                ))
+              ) : (
+                <i
+                  className="bi bi-wordpress"
+                  style={{
+                    fontSize: "2.8rem",
+                    color: "inherit",
+                    textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+                    height: "45px",
+                  }}></i>
+              )}
+            </div>
           );
         })()}
 

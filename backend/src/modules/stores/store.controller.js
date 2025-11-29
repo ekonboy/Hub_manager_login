@@ -5,7 +5,7 @@ const response = require(path.join(__dirname, '..', '..', 'utils', 'response'));
 const StoreController = {
     listStores: async (req, res) => {
         try {
-            const stores = await StoreService.listStores();
+            const stores = await StoreService.listStoresWithIcons();
             response.success(res, { stores });
         } catch(err) {
             response.error(res, err.message);
