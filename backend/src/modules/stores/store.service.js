@@ -3,28 +3,54 @@ const fs = require('fs');
 const axios = require('axios');
 const TokenService = require(path.join(__dirname, '..', 'tokens', 'token.service'));
 
-const storesFile = path.join(process.cwd(), 'src', 'data', 'stores.json');
+const getStoresFilePath = () => {
+  const possiblePaths = [
+    path.join(process.cwd(), 'src', 'data', 'stores.json'),
+    path.join(__dirname, '..', '..', 'data', 'stores.json'),
+    path.join(process.cwd(), 'backend', 'src', 'data', 'stores.json')
+  ];
+
+  for (const p of possiblePaths) {
+    if (fs.existsSync(p)) return p;
+  }
+  return possiblePaths[0]; // Default to first one if none found
+};
 
 const StoreService = {
   // Listar stores estático
   listStores: async () => {
-    const data = fs.readFileSync(storesFile, 'utf-8');
+    const filePath = getStoresFilePath();
+    console.log('Intentando leer stores de:', filePath);
+    
+    if (!fs.existsSync(filePath)) {
+      console.error('ARCHIVO NO ENCONTRADO:', filePath);
+      throw new Error(`Archivo stores.json no encontrado en: ${filePath}`);
+    }
+
+    const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
   },
 
   // Crear store
   createStore: async (store) => {
-    const data = fs.readFileSync(storesFile, 'utf-8');
+    const filePath = getStoresFilePath();
+    const data = fs.readFileSync(filePath, 'utf-8');
     const stores = JSON.parse(data);
     store.id = stores.length + 1;
     stores.push(store);
-    fs.writeFileSync(storesFile, JSON.stringify(stores, null, 2));
+    // Nota: En Vercel esto fallará porque es read-only, pero funciona en local
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(stores, null, 2));
+    } catch (e) {
+      console.warn('No se pudo escribir en stores.json (probablemente entorno read-only):', e.message);
+    }
     return store;
   },
 
   // Generar token y devolver URL de login
   generateTokenAndSend: async (storeId, userId) => {
-    const storesData = fs.readFileSync(storesFile, 'utf-8');
+    const filePath = getStoresFilePath();
+    const storesData = fs.readFileSync(filePath, 'utf-8');
     const stores = JSON.parse(storesData);
     const store = stores.find(s => s.id === storeId);
     if (!store) throw new Error('Store no encontrada');
@@ -41,7 +67,8 @@ const StoreService = {
     const { url, logo, image, app_password } = data;
     if (!url) throw new Error('URL es requerida para sincronizar');
 
-    const storesData = fs.readFileSync(storesFile, 'utf-8');
+    const filePath = getStoresFilePath();
+    const storesData = fs.readFileSync(filePath, 'utf-8');
     let stores = JSON.parse(storesData);
     
     const normalize = (u) => u.replace(/\/$/, '').toLowerCase();
@@ -55,13 +82,26 @@ const StoreService = {
     if (image) stores[storeIndex].image = image;
     if (app_password) stores[storeIndex].app_password = app_password;
 
-    fs.writeFileSync(storesFile, JSON.stringify(stores, null, 2));
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(stores, null, 2));
+    } catch (e) {
+      console.warn('No se pudo escribir en stores.json:', e.message);
+    }
     return stores[storeIndex];
   },
 
   // Listar stores con iconos dinámicos desde WP
   listStoresWithIcons: async () => {
-    const storesData = fs.readFileSync(storesFile, 'utf-8');
+    const filePath = getStoresFilePath();
+    console.log('listStoresWithIcons leyendo de:', filePath);
+    
+    if (!fs.existsSync(filePath)) {
+       // Fallback vacío si no existe
+       console.error('ARCHIVO NO ENCONTRADO en listStoresWithIcons:', filePath);
+       return [];
+    }
+
+    const storesData = fs.readFileSync(filePath, 'utf-8');
     const stores = JSON.parse(storesData);
 
     const storesWithIcons = await Promise.all(
