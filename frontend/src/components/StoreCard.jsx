@@ -4,7 +4,7 @@ import { FaStore, FaLink, FaSignInAlt } from "react-icons/fa";
 function StoreCard({ store, onLogin }) {
   return (
     <div className="col-5-per-row mb-4">
-      <div className="card shadow-sm h-100 bg-body text-body">
+      <div className="card h-100 bg-body text-body">
         {/* Cabecera */}
 
         {store.logo && <img src={store.logo} alt={`${store.name} logo`} className="centered-absolute" />}
