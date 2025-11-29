@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const TokenService = require(path.join(__dirname, '..', 'tokens', 'token.service'));
 
-const storesFile = path.join(__dirname, '..', '..', 'data', 'stores.json');
+const storesFile = path.join(process.cwd(), 'src', 'data', 'stores.json');
 
 const StoreService = {
   // Listar stores estático

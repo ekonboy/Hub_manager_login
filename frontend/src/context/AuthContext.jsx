@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         try {
           const response = await verifyToken(token);
-          if (response.success && response.data.valid) {
+          if (response.status === 'success' && response.data.valid) {
             setUser(response.data.user);
           } else {
             localStorage.removeItem('token');
