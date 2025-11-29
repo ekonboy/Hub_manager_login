@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { loginStore, fetchStores } from "../services/storeService";
 import StoreCard from "../components/StoreCard";
 import ToggleTheme from "../components/ToggleTheme";
+import { useAuth } from "../context/AuthContext";
 
 export default function Stores() {
   const [stores, setStores] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { logout, user } = useAuth();
 
   useEffect(() => {
     const loadStoresWithWPData = async () => {
@@ -20,17 +22,18 @@ export default function Stores() {
         const storesWithWPData = await Promise.all(
           baseStores.map(async (store) => {
             // Solo consultar si es una plataforma WP
-            if (store.platform && store.platform.includes('WP')) {
+            if (store.platform && store.platform.includes("WP")) {
               try {
                 const wpResponse = await fetch(`${store.url}/wp-json/filament/v1/stores`);
                 const wpData = await wpResponse.json();
-                
-                // Combinar datos: usar logo/image de WP si existen
+
+                // Combinar datos: usar logo/image/platform_icons de WP si existen
                 if (wpData && wpData.length > 0) {
                   return {
                     ...store,
-                    logo: wpData[0].logo || store.logo || '',
-                    image: wpData[0].image || store.image || ''
+                    logo: wpData[0].logo || store.logo || "",
+                    image: wpData[0].image || store.image || "",
+                    platform_icons: wpData[0].platform_icons || store.platform_icons || [],
                   };
                 }
               } catch (wpError) {
@@ -94,12 +97,18 @@ export default function Stores() {
 
   return (
     <div className="container mt-5">
-      <div className="text-end mb-4">
-        <ToggleTheme />
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2>Mis CMS</h2>
+        <div className="d-flex gap-2 align-items-center">
+          <span className="text-muted">Hola, {user?.username}</span>
+          <button className="btn btn-outline-danger btn-sm" onClick={logout}>
+            Cerrar sesión
+          </button>
+          <ToggleTheme />
+        </div>
       </div>
 
-      <h1 className="mb-4 text-center">Hub Manager Login</h1>
-      <div className="row">
+      <div className="row mt-5">
         {stores.map((store) => (
           <StoreCard key={store.id} store={store} onLogin={() => handleLogin(store)} />
         ))}

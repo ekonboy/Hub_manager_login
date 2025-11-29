@@ -4,9 +4,12 @@
     "name": "ZASKA",
     "url": "https://zaska.vistarapida.es",
     "platform": "WP + WOO",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
     "username": "gabrielrese@gmail.com",
-    "logo": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/gabii-mobile_LOGO33.png",
-    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+    "logo": "",
+    "image": ""
   },
   {
     "id": 2,
@@ -24,11 +27,11 @@
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
     "logo": "",
-    "image": "https://zaska.vistarapida.es/wp-content/uploads/2025/11/plantilla_hub_manager_login_v1.png"
+    "image": ""
   },
   {
     "id": 4,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -37,7 +40,7 @@
   },
   {
     "id": 5,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -46,7 +49,7 @@
   },
   {
     "id": 6,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -55,7 +58,7 @@
   },
   {
     "id": 7,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -64,7 +67,7 @@
   },
   {
     "id": 8,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -73,7 +76,7 @@
   },
   {
     "id": 9,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",
@@ -82,7 +85,7 @@
   },
   {
     "id": 10,
-    "name": "EXITUS",
+    "name": "test",
     "url": "https://exitus.es",
     "platform": "WP + ACF",
     "username": "gabrielrese@gmail.com",

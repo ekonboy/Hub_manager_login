@@ -12,6 +12,8 @@ const cors = require('cors');
 // Rutas absolutas
 const storeRoutes = require(path.join(__dirname, 'src', 'routes', 'store.routes'));
 const tokenRoutes = require(path.join(__dirname, 'src', 'routes', 'token.routes'));
+const authRoutes = require(path.join(__dirname, 'src', 'routes', 'auth.routes'));
+const authMiddleware = require(path.join(__dirname, 'src', 'middleware', 'auth.middleware'));
 
 const app = express();
 app.use(cors());
@@ -22,7 +24,8 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // Endpoints
-app.use('/api/stores', storeRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/stores', authMiddleware, storeRoutes);
 app.use('/api/tokens', tokenRoutes);
 
 // Ruta raíz
