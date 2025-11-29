@@ -98,7 +98,7 @@ export default function Stores() {
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Mis CMS</h2>
+        <h2>Hub Manager Login</h2>
         <div className="d-flex gap-2 align-items-center">
           <span className="text-muted">Hola, {user?.username}</span>
           <button className="btn btn-outline-danger btn-sm" onClick={logout}>

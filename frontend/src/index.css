@@ -85,7 +85,7 @@
 .centered-absolute {
     position: absolute;
     width: 24%;
-    top: -3%;
+    top: -6%;
     left: 50%;
     transform: translateX(-50%);
 }
