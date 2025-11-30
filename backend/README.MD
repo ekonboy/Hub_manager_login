@@ -146,3 +146,5 @@ hub-login/
 
 
 ### acordarse, el plugin lleva hardcodeado el id del usuario con el que se registra.
+### usuario tiene que ser mi email
+### se instala un plugin en wp para el token y se crea un password de aplicacion

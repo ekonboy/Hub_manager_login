@@ -36,6 +36,42 @@
     "image": ""
   },
   {
+    "id": 19,
+    "name": "Petitama",
+    "url": "https://petitama.com",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/petitama.webp"
+  },
+  {
+    "id": 18,
+    "name": "Laravel PayPaga",
+    "url": "https://vistarapida.es",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/paypaga_laravel.webp"
+  },
+  {
+    "id": 10,
+    "name": "PayRetailers",
+    "url": "https://vistarapida.es",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/pr2.webp"
+  },
+  {
     "id": 4,
     "name": "Batlle",
     "url": "https://vistarapida.es",
@@ -106,18 +142,6 @@
     "username": "gabrielrese@gmail.com",
     "logo": "",
     "image": "https://vistarapida.es/wp-content/uploads/2025/10/kuady.webp"
-  },
-  {
-    "id": 10,
-    "name": "PayRetailers",
-    "url": "https://vistarapida.es",
-    "platform": "WP",
-        "platform_icons": [
-      "bi bi-wordpress"
-    ],
-    "username": "gabrielrese@gmail.com",
-    "logo": "",
-    "image": "https://vistarapida.es/wp-content/uploads/2025/10/pr2.webp"
   },
   {
     "id": 11,
@@ -202,29 +226,5 @@
     "username": "gabrielrese@gmail.com",
     "logo": "",
     "image": "https://vistarapida.es/wp-content/uploads/2025/10/paypaga.webp"
-  },
-  {
-    "id": 18,
-    "name": "Laravel PayPaga",
-    "url": "https://vistarapida.es",
-    "platform": "WP",
-        "platform_icons": [
-      "bi bi-wordpress"
-    ],
-    "username": "gabrielrese@gmail.com",
-    "logo": "",
-    "image": "https://vistarapida.es/wp-content/uploads/2025/10/paypaga_laravel.webp"
-  },
-  {
-    "id": 19,
-    "name": "Petitama",
-    "url": "https://petitama.com",
-    "platform": "WP",
-        "platform_icons": [
-      "bi bi-wordpress"
-    ],
-    "username": "gabrielrese@gmail.com",
-    "logo": "",
-    "image": "https://vistarapida.es/wp-content/uploads/2025/10/petitama.webp"
   }
 ]
