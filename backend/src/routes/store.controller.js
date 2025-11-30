@@ -23,7 +23,7 @@ class StoreController {
     try {
       if (store.platform === 'wp') {
         // Llamada al plugin WP Hub Login
-        const response = await axios.post(`${store.url}/wp-json/hub-login/v1/login`, {
+        const response = await axios.get(`${store.url}/wp-json/filament/v1/login?token=${token}`, {
           username: store.username,
           app_password: store.app_password
         }, { withCredentials: true });

@@ -11,7 +11,7 @@ router.get('/', StoreController.listStores);
 router.post('/', StoreController.createStore);
 
 // GET /api/stores/:id/login?user_id=1
-router.post('/:id/login', StoreController.loginStore);
+router.get('/:id/login', StoreController.loginStore);
 
 // PUT /api/stores/sync
 router.put('/sync', StoreController.syncStore);
