@@ -133,8 +133,12 @@ const StoreService = {
                 logo = wpData[0].logo;
               }
               if (wpData[0].image) {
-                image = wpData[0].image;
-                if (store.name === 'Batlle') console.log(`DEBUG Batlle: Imagen sobrescrita por WP: ${image}`);
+                // Priorizar imagen hardcodeada: solo sobrescribir si no hay imagen local
+                if (!store.image) {
+                    image = wpData[0].image;
+                } else {
+                    if (store.name === 'Batlle') console.log(`DEBUG Batlle: Manteniendo imagen hardcodeada: ${store.image}`);
+                }
               }
             }
           } catch (err) {

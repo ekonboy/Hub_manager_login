@@ -38,7 +38,7 @@
   {
     "id": 4,
     "name": "Batlle",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "name": "BMW",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "name": "Deretil",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "name": "Gestor",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "name": "Entema",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "name": "Kuady",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "name": "PayRetailers",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -122,7 +122,7 @@
   {
     "id": 11,
     "name": "Quokka",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -134,7 +134,7 @@
   {
     "id": 12,
     "name": "Clinica Ros",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -146,7 +146,7 @@
   {
     "id": 13,
     "name": "Sama Logistica",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -158,7 +158,7 @@
   {
     "id": 14,
     "name": "Serpe",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -170,7 +170,7 @@
   {
     "id": 15,
     "name": "Storline",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -182,7 +182,7 @@
   {
     "id": 16,
     "name": "Tantrend",
-    "url": "https://exitus.es",
+    "url": "https://vistarapida.es",
     "platform": "WP",
         "platform_icons": [
       "bi bi-wordpress"
@@ -190,5 +190,41 @@
     "username": "gabrielrese@gmail.com",
     "logo": "",
     "image": "https://vistarapida.es/wp-content/uploads/2025/10/tantrend.webp"
+  },
+  {
+    "id": 17,
+    "name": "PayPaga",
+    "url": "https://vistarapida.es",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/paypaga.webp"
+  },
+  {
+    "id": 18,
+    "name": "Laravel PayPaga",
+    "url": "https://vistarapida.es",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/paypaga_laravel.webp"
+  },
+  {
+    "id": 19,
+    "name": "Petitama",
+    "url": "https://petitama.com",
+    "platform": "WP",
+        "platform_icons": [
+      "bi bi-wordpress"
+    ],
+    "username": "gabrielrese@gmail.com",
+    "logo": "",
+    "image": "https://vistarapida.es/wp-content/uploads/2025/10/petitama.webp"
   }
 ]

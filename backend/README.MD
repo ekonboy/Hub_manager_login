@@ -143,3 +143,6 @@ hub-login/
 │       ├─ components/
 │       └─ services/
 └─ package.json      <-- opcional, solo si quieres scripts raíz
+
+
+### acordarse, el plugin lleva hardcodeado el id del usuario con el que se registra.

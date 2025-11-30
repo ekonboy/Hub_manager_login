@@ -16,7 +16,19 @@ const authRoutes = require(path.join(__dirname, 'src', 'routes', 'auth.routes'))
 const authMiddleware = require(path.join(__dirname, 'src', 'middleware', 'auth.middleware'));
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://frontend-phi-blush.vercel.app"   // tu frontend en Vercel
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
+
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
